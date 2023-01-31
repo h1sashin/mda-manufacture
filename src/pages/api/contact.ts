@@ -1,5 +1,5 @@
-import { requestBodyGuard } from '@/src/utils/requestBodyGuard'
-import { sendMail } from '@/src/utils/sendMail'
+import { requestBodyGuard } from '@/utils/requestBodyGuard'
+import { sendMail } from '@/utils/sendMail'
 import { ContactBody, ContactResponse } from 'api'
 import { NextApiHandler } from 'next'
 

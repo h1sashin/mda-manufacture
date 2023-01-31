@@ -1,39 +1,51 @@
 {
-  "name": "mda-manufacture",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "@types/node": "18.11.18",
-    "@types/react": "18.0.27",
-    "@types/react-dom": "18.0.10",
-    "eslint": "8.33.0",
-    "eslint-config-next": "13.1.6",
-    "formik": "^2.2.9",
-    "i18next": "^22.4.9",
-    "next": "13.1.6",
-    "next-i18next": "^13.0.3",
-    "nodemailer": "^6.9.1",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "react-i18next": "^12.1.4",
-    "typescript": "4.9.4",
-    "yup": "^0.32.11"
-  },
-  "devDependencies": {
-    "@types/nodemailer": "^6.4.7",
-    "@typescript-eslint/eslint-plugin": "^5.49.0",
-    "@typescript-eslint/parser": "^5.49.0",
-    "autoprefixer": "^10.4.13",
-    "eslint-plugin-prettier": "^4.2.1",
-    "postcss": "^8.4.21",
-    "prettier": "^2.8.3",
-    "prettier-plugin-tailwindcss": "^0.2.2",
-    "tailwindcss": "^3.2.4"
-  }
+    "name": "mda-manufacture",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "concurrently \"npm run codegen\" \"npm run start:dev\"",
+        "start:dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "codegen": "graphql-codegen --config codegen.yml --watch"
+    },
+    "dependencies": {
+        "@apollo/client": "^3.7.5",
+        "@graphql-codegen/cli": "^2.16.5",
+        "@graphql-codegen/client-preset": "^1.3.0",
+        "@graphql-codegen/introspection": "^2.2.3",
+        "@graphql-codegen/typed-document-node": "^2.3.13",
+        "@graphql-codegen/typescript": "^2.8.8",
+        "@graphql-codegen/typescript-operations": "^2.5.13",
+        "@graphql-typed-document-node/core": "^3.1.1",
+        "@types/node": "18.11.18",
+        "@types/react": "18.0.27",
+        "@types/react-dom": "18.0.10",
+        "eslint": "8.33.0",
+        "eslint-config-next": "13.1.6",
+        "formik": "^2.2.9",
+        "graphql": "^16.6.0",
+        "i18next": "^22.4.9",
+        "next": "13.1.6",
+        "next-i18next": "^13.0.3",
+        "nodemailer": "^6.9.1",
+        "react": "18.2.0",
+        "react-dom": "18.2.0",
+        "react-i18next": "^12.1.4",
+        "typescript": "4.9.4",
+        "yup": "^0.32.11"
+    },
+    "devDependencies": {
+        "@tailwindcss/typography": "^0.5.9",
+        "@types/nodemailer": "^6.4.7",
+        "@typescript-eslint/eslint-plugin": "^5.49.0",
+        "@typescript-eslint/parser": "^5.49.0",
+        "autoprefixer": "^10.4.13",
+        "eslint-plugin-prettier": "^4.2.1",
+        "postcss": "^8.4.21",
+        "prettier": "^2.8.3",
+        "prettier-plugin-tailwindcss": "^0.2.2",
+        "tailwindcss": "^3.2.4"
+    }
 }

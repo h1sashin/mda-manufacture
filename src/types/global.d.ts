@@ -7,6 +7,8 @@ declare global {
             MAILER_HOST: string
             MAILER_USER: string
             MAILER_PASSWORD: string
+            CMS_API_URL: string
+            CMS_API_TOKEN: string
         }
     }
 }

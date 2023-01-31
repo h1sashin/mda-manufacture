@@ -16,6 +16,7 @@
         "incremental": true,
         "typeRoots": ["types"],
         "rootDir": "src",
+        "baseUrl": "src",
         "paths": {
             "@/*": ["./*"]
         }

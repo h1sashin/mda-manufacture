@@ -1,0 +1,16 @@
+overwrite: true
+schema:
+    'https://graphql.datocms.com':
+        headers:
+            Authorization: Bearer 9d8a1d2283c013c3c03fcc5070acf6
+documents: 'src/graphql/requests'
+config:
+    namingConvention:
+        enumValues: 'change-case#lowerCase'
+generates:
+    ./src/graphql/__GENERATED__/:
+        preset: 'client'
+        plugins: []
+    ./src/graphql/graphql.schema.json:
+        plugins:
+            - 'introspection'
