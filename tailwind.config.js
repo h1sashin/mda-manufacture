@@ -6,7 +6,15 @@ module.exports = {
             center: true,
             padding: '2rem'
         },
-        extend: {}
+        extend: {
+            typography: {
+                DEFAULT: {
+                    css: {
+                        maxWidth: '200ch'
+                    }
+                }
+            }
+        }
     },
     plugins: [require('@tailwindcss/typography')]
 }

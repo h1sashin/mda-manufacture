@@ -26,35 +26,6 @@ export type Scalars = {
   UploadId: any;
 };
 
-/** Block of type Address (address) */
-export type AddressRecord = RecordInterface & {
-  __typename?: 'AddressRecord';
-  _createdAt: Scalars['DateTime'];
-  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
-  _isValid: Scalars['BooleanType'];
-  _modelApiKey: Scalars['String'];
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
-  _publishedAt?: Maybe<Scalars['DateTime']>;
-  /** SEO meta tags */
-  _seoMetaTags: Array<Tag>;
-  _status: ItemStatus;
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
-  _updatedAt: Scalars['DateTime'];
-  buildingNumber?: Maybe<Scalars['String']>;
-  city?: Maybe<Scalars['String']>;
-  country?: Maybe<Scalars['String']>;
-  flatNumber?: Maybe<Scalars['String']>;
-  id: Scalars['ItemId'];
-  postalCode?: Maybe<Scalars['String']>;
-  street?: Maybe<Scalars['String']>;
-};
-
-
-/** Block of type Address (address) */
-export type AddressRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
 /** Specifies how to filter Boolean fields */
 export type BooleanFilter = {
   /** Search for records with an exact match */
@@ -90,45 +61,10 @@ export type ColorField = {
   red: Scalars['IntType'];
 };
 
-/** Record of type Contact Info (contact_info) */
-export type ContactInfoRecord = RecordInterface & {
-  __typename?: 'ContactInfoRecord';
-  _allPhoneNumberLocales?: Maybe<Array<StringMultiLocaleField>>;
-  _createdAt: Scalars['DateTime'];
-  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
-  _isValid: Scalars['BooleanType'];
-  _modelApiKey: Scalars['String'];
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
-  _publishedAt?: Maybe<Scalars['DateTime']>;
-  /** SEO meta tags */
-  _seoMetaTags: Array<Tag>;
-  _status: ItemStatus;
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
-  _updatedAt: Scalars['DateTime'];
-  addresses: Array<AddressRecord>;
-  email?: Maybe<Scalars['String']>;
-  id: Scalars['ItemId'];
-  phoneNumber?: Maybe<Scalars['String']>;
-};
-
-
-/** Record of type Contact Info (contact_info) */
-export type ContactInfoRecord_AllPhoneNumberLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Contact Info (contact_info) */
-export type ContactInfoRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Contact Info (contact_info) */
-export type ContactInfoRecordPhoneNumberArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
+/** Specifies how to filter Color fields */
+export type ColorFilter = {
+  /** Filter records with the specified field defined (i.e. with any value) or not */
+  exists?: InputMaybe<Scalars['BooleanType']>;
 };
 
 /** Specifies how to filter by creation datetime */
@@ -149,9 +85,9 @@ export type CreatedAtFilter = {
   neq?: InputMaybe<Scalars['DateTime']>;
 };
 
-/** Block of type FAQ Item (faq_item) */
-export type FaqItemRecord = RecordInterface & {
-  __typename?: 'FaqItemRecord';
+/** Block of type FAQ Question (faq_question) */
+export type FaqQuestionRecord = RecordInterface & {
+  __typename?: 'FaqQuestionRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -169,28 +105,14 @@ export type FaqItemRecord = RecordInterface & {
 };
 
 
-/** Block of type FAQ Item (faq_item) */
-export type FaqItemRecord_SeoMetaTagsArgs = {
+/** Block of type FAQ Question (faq_question) */
+export type FaqQuestionRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-
-/** Block of type FAQ Item (faq_item) */
-export type FaqItemRecordAnswerArgs = {
-  markdown?: InputMaybe<Scalars['Boolean']>;
-};
-
-export type FaqItemRecordListListNonNullMultiLocaleField = {
-  __typename?: 'FaqItemRecordListListNonNullMultiLocaleField';
-  locale?: Maybe<SiteLocale>;
-  value: Array<FaqItemRecord>;
-};
-
-/** Record of type FAQ (faq) */
-export type FaqRecord = RecordInterface & {
-  __typename?: 'FaqRecord';
-  _allContentLocales?: Maybe<Array<FaqItemRecordListListNonNullMultiLocaleField>>;
-  _allSeoLocales?: Maybe<Array<SeoFieldMultiLocaleField>>;
+/** Block of type FAQ Section (faq_section) */
+export type FaqSectionRecord = RecordInterface & {
+  __typename?: 'FaqSectionRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -202,42 +124,13 @@ export type FaqRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
-  content: Array<FaqItemRecord>;
+  faqSection: Array<FaqQuestionRecord>;
   id: Scalars['ItemId'];
-  seo?: Maybe<SeoField>;
 };
 
 
-/** Record of type FAQ (faq) */
-export type FaqRecord_AllContentLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type FAQ (faq) */
-export type FaqRecord_AllSeoLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type FAQ (faq) */
-export type FaqRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type FAQ (faq) */
-export type FaqRecordContentArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type FAQ (faq) */
-export type FaqRecordSeoArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+/** Block of type FAQ Section (faq_section) */
+export type FaqSectionRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -398,74 +291,6 @@ export type FileFieldInterfaceUrlArgs = {
   imgixParams?: InputMaybe<ImgixParams>;
 };
 
-/** Specifies how to filter Single-file/image fields */
-export type FileFilter = {
-  /** Search for records with an exact match. The specified value must be an Upload ID */
-  eq?: InputMaybe<Scalars['UploadId']>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records that have one of the specified uploads */
-  in?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-  /** Exclude records with an exact match. The specified value must be an Upload ID */
-  neq?: InputMaybe<Scalars['UploadId']>;
-  /** Filter records that do not have one of the specified uploads */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-};
-
-/** Specifies how to filter Multiple files/images field */
-export type GalleryFilter = {
-  /** Filter records that have all of the specified uploads. The specified values must be Upload IDs */
-  allIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-  /** Filter records that have one of the specified uploads. The specified values must be Upload IDs */
-  anyIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-  /** Search for records with an exact match. The specified values must be Upload IDs */
-  eq?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records that do not have any of the specified uploads. The specified values must be Upload IDs */
-  notIn?: InputMaybe<Array<InputMaybe<Scalars['UploadId']>>>;
-};
-
-/** Record of type Gallery (gallery) */
-export type GalleryRecord = RecordInterface & {
-  __typename?: 'GalleryRecord';
-  _allSeoLocales?: Maybe<Array<SeoFieldMultiLocaleField>>;
-  _createdAt: Scalars['DateTime'];
-  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
-  _isValid: Scalars['BooleanType'];
-  _modelApiKey: Scalars['String'];
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
-  _publishedAt?: Maybe<Scalars['DateTime']>;
-  /** SEO meta tags */
-  _seoMetaTags: Array<Tag>;
-  _status: ItemStatus;
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
-  _updatedAt: Scalars['DateTime'];
-  id: Scalars['ItemId'];
-  images: Array<FileField>;
-  seo?: Maybe<SeoField>;
-};
-
-
-/** Record of type Gallery (gallery) */
-export type GalleryRecord_AllSeoLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Gallery (gallery) */
-export type GalleryRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Gallery (gallery) */
-export type GalleryRecordSeoArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
 export type GlobalSeoField = {
   __typename?: 'GlobalSeoField';
   facebookPageUrl?: Maybe<Scalars['String']>;
@@ -475,15 +300,9 @@ export type GlobalSeoField = {
   twitterAccount?: Maybe<Scalars['String']>;
 };
 
-/** Record of type Home (home) */
-export type HomeRecord = RecordInterface & {
-  __typename?: 'HomeRecord';
-  _allAboutContentLocales?: Maybe<Array<StringMultiLocaleField>>;
-  _allAboutTitleLocales?: Maybe<Array<StringMultiLocaleField>>;
-  _allSeoLocales?: Maybe<Array<SeoFieldMultiLocaleField>>;
-  _allSubtitleLocales?: Maybe<Array<StringMultiLocaleField>>;
-  _allTilesLocales?: Maybe<Array<TileRecordListListNonNullMultiLocaleField>>;
-  _allTitleLocales?: Maybe<Array<StringMultiLocaleField>>;
+/** Block of type Hero Element (hero_element) */
+export type HeroElementRecord = RecordInterface & {
+  __typename?: 'HeroElementRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -495,103 +314,39 @@ export type HomeRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
-  aboutContent?: Maybe<Scalars['String']>;
-  aboutTitle?: Maybe<Scalars['String']>;
   backgroundImage?: Maybe<FileField>;
+  description?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
-  seo?: Maybe<SeoField>;
-  subtitle?: Maybe<Scalars['String']>;
-  tiles: Array<TileRecord>;
   title?: Maybe<Scalars['String']>;
 };
 
 
-/** Record of type Home (home) */
-export type HomeRecord_AllAboutContentLocalesArgs = {
-  locale?: InputMaybe<SiteLocale>;
-  markdown?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecord_AllAboutTitleLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+/** Block of type Hero Element (hero_element) */
+export type HeroElementRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-
-/** Record of type Home (home) */
-export type HomeRecord_AllSeoLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
+/** Block of type Hero Section (hero_section) */
+export type HeroSectionRecord = RecordInterface & {
+  __typename?: 'HeroSectionRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  elements: Array<HeroElementRecord>;
+  id: Scalars['ItemId'];
 };
 
 
-/** Record of type Home (home) */
-export type HomeRecord_AllSubtitleLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecord_AllTilesLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecord_AllTitleLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecordAboutContentArgs = {
-  locale?: InputMaybe<SiteLocale>;
-  markdown?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecordAboutTitleArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecordSeoArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecordSubtitleArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecordTilesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Home (home) */
-export type HomeRecordTitleArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+/** Block of type Hero Section (hero_section) */
+export type HeroSectionRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -1983,9 +1738,25 @@ export enum ItemStatus {
   updated = 'updated'
 }
 
-/** Block of type Link (link) */
-export type LinkRecord = RecordInterface & {
-  __typename?: 'LinkRecord';
+/** Specifies how to filter by locale */
+export type LocalesFilter = {
+  /** Filter records that are localized in all the specified locales */
+  allIn?: InputMaybe<Array<SiteLocale>>;
+  /** Filter records that are localized in at least one of the specified locales */
+  anyIn?: InputMaybe<Array<SiteLocale>>;
+  /** Filter records that are not localized in any of the specified locales */
+  notIn?: InputMaybe<Array<SiteLocale>>;
+};
+
+export enum MuxThumbnailFormatType {
+  gif = 'gif',
+  jpg = 'jpg',
+  png = 'png'
+}
+
+/** Block of type Navigation (navigation) */
+export type NavigationRecord = RecordInterface & {
+  __typename?: 'NavigationRecord';
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
@@ -1998,19 +1769,15 @@ export type LinkRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   id: Scalars['ItemId'];
+  links: Array<PageRecord>;
+  logo?: Maybe<FileField>;
 };
 
 
-/** Block of type Link (link) */
-export type LinkRecord_SeoMetaTagsArgs = {
+/** Block of type Navigation (navigation) */
+export type NavigationRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
-
-export enum MuxThumbnailFormatType {
-  gif = 'gif',
-  jpg = 'jpg',
-  png = 'png'
-}
 
 /** Specifies how to filter by image orientation */
 export type OrientationFilter = {
@@ -2020,57 +1787,25 @@ export type OrientationFilter = {
   neq?: InputMaybe<UploadOrientation>;
 };
 
-/** Block of type Parameter (parameter) */
-export type ParameterRecord = RecordInterface & {
-  __typename?: 'ParameterRecord';
-  _createdAt: Scalars['DateTime'];
-  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
-  _isValid: Scalars['BooleanType'];
-  _modelApiKey: Scalars['String'];
-  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
-  _publishedAt?: Maybe<Scalars['DateTime']>;
-  /** SEO meta tags */
-  _seoMetaTags: Array<Tag>;
-  _status: ItemStatus;
-  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
-  _updatedAt: Scalars['DateTime'];
-  id: Scalars['ItemId'];
-  name?: Maybe<Scalars['String']>;
-  value?: Maybe<Scalars['String']>;
-};
-
-
-/** Block of type Parameter (parameter) */
-export type ParameterRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-export type ParameterRecordListListNonNullMultiLocaleField = {
-  __typename?: 'ParameterRecordListListNonNullMultiLocaleField';
-  locale?: Maybe<SiteLocale>;
-  value: Array<ParameterRecord>;
-};
-
-export type ProductModelFilter = {
-  OR?: InputMaybe<Array<InputMaybe<ProductModelFilter>>>;
+export type PageModelFilter = {
+  OR?: InputMaybe<Array<InputMaybe<PageModelFilter>>>;
   _createdAt?: InputMaybe<CreatedAtFilter>;
   _firstPublishedAt?: InputMaybe<PublishedAtFilter>;
   _isValid?: InputMaybe<BooleanFilter>;
+  _locales?: InputMaybe<LocalesFilter>;
   _publicationScheduledAt?: InputMaybe<PublishedAtFilter>;
   _publishedAt?: InputMaybe<PublishedAtFilter>;
   _status?: InputMaybe<StatusFilter>;
   _unpublishingScheduledAt?: InputMaybe<PublishedAtFilter>;
   _updatedAt?: InputMaybe<UpdatedAtFilter>;
-  description?: InputMaybe<TextFilter>;
+  defaultColor?: InputMaybe<ColorFilter>;
   id?: InputMaybe<ItemIdFilter>;
-  images?: InputMaybe<GalleryFilter>;
-  model?: InputMaybe<FileFilter>;
-  name?: InputMaybe<StringFilter>;
-  seo?: InputMaybe<SeoFilter>;
+  metaTags?: InputMaybe<SeoFilter>;
   slug?: InputMaybe<SlugFilter>;
+  title?: InputMaybe<StringFilter>;
 };
 
-export enum ProductModelOrderBy {
+export enum PageModelOrderBy {
   _createdat_asc = '_createdAt_ASC',
   _createdat_desc = '_createdAt_DESC',
   _firstpublishedat_asc = '_firstPublishedAt_ASC',
@@ -2089,20 +1824,26 @@ export enum ProductModelOrderBy {
   _updatedat_desc = '_updatedAt_DESC',
   id_asc = 'id_ASC',
   id_desc = 'id_DESC',
-  name_asc = 'name_ASC',
-  name_desc = 'name_DESC'
+  title_asc = 'title_ASC',
+  title_desc = 'title_DESC'
 }
 
-/** Record of type Product (product) */
-export type ProductRecord = RecordInterface & {
-  __typename?: 'ProductRecord';
-  _allDescriptionLocales?: Maybe<Array<StringMultiLocaleField>>;
-  _allNameLocales?: Maybe<Array<StringMultiLocaleField>>;
-  _allParametersLocales?: Maybe<Array<ParameterRecordListListNonNullMultiLocaleField>>;
-  _allSeoLocales?: Maybe<Array<SeoFieldMultiLocaleField>>;
+export type PageModelSectionsField = FaqSectionRecord | HeroSectionRecord | NavigationRecord | RichTextSectionRecord | StepperSectionRecord | TilesSectionRecord;
+
+export type PageModelSectionsFieldListListNonNullMultiLocaleField = {
+  __typename?: 'PageModelSectionsFieldListListNonNullMultiLocaleField';
+  locale?: Maybe<SiteLocale>;
+  value: Array<PageModelSectionsField>;
+};
+
+/** Record of type Page (page) */
+export type PageRecord = RecordInterface & {
+  __typename?: 'PageRecord';
+  _allSectionsLocales?: Maybe<Array<PageModelSectionsFieldListListNonNullMultiLocaleField>>;
   _createdAt: Scalars['DateTime'];
   _firstPublishedAt?: Maybe<Scalars['DateTime']>;
   _isValid: Scalars['BooleanType'];
+  _locales: Array<SiteLocale>;
   _modelApiKey: Scalars['String'];
   _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
   _publishedAt?: Maybe<Scalars['DateTime']>;
@@ -2111,74 +1852,30 @@ export type ProductRecord = RecordInterface & {
   _status: ItemStatus;
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
-  description?: Maybe<Scalars['String']>;
+  defaultColor?: Maybe<ColorField>;
   id: Scalars['ItemId'];
-  images: Array<FileField>;
-  model?: Maybe<FileField>;
-  name?: Maybe<Scalars['String']>;
-  parameters: Array<ParameterRecord>;
-  seo?: Maybe<SeoField>;
+  metaTags?: Maybe<SeoField>;
+  sections: Array<PageModelSectionsField>;
   slug?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
 };
 
 
-/** Record of type Product (product) */
-export type ProductRecord_AllDescriptionLocalesArgs = {
-  locale?: InputMaybe<SiteLocale>;
-  markdown?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-/** Record of type Product (product) */
-export type ProductRecord_AllNameLocalesArgs = {
+/** Record of type Page (page) */
+export type PageRecord_AllSectionsLocalesArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
 
 
-/** Record of type Product (product) */
-export type ProductRecord_AllParametersLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+/** Record of type Page (page) */
+export type PageRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
 
-/** Record of type Product (product) */
-export type ProductRecord_AllSeoLocalesArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Product (product) */
-export type ProductRecord_SeoMetaTagsArgs = {
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Product (product) */
-export type ProductRecordDescriptionArgs = {
-  locale?: InputMaybe<SiteLocale>;
-  markdown?: InputMaybe<Scalars['Boolean']>;
-};
-
-
-/** Record of type Product (product) */
-export type ProductRecordNameArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Product (product) */
-export type ProductRecordParametersArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** Record of type Product (product) */
-export type ProductRecordSeoArgs = {
+/** Record of type Page (page) */
+export type PageRecordSectionsArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
   locale?: InputMaybe<SiteLocale>;
 };
@@ -2205,34 +1902,26 @@ export type PublishedAtFilter = {
 export type Query = {
   __typename?: 'Query';
   /** Returns meta information regarding a record collection */
-  _allProductsMeta: CollectionMetadata;
+  _allPagesMeta: CollectionMetadata;
   /** Returns meta information regarding an assets collection */
   _allUploadsMeta?: Maybe<CollectionMetadata>;
   /** Returns the single instance record */
   _site: Site;
   /** Returns a collection of records */
-  allProducts: Array<ProductRecord>;
+  allPages: Array<PageRecord>;
   /** Returns a collection of assets */
   allUploads: Array<FileField>;
-  /** Returns the single instance record */
-  contactInfo?: Maybe<ContactInfoRecord>;
-  /** Returns the single instance record */
-  faq?: Maybe<FaqRecord>;
-  /** Returns the single instance record */
-  gallery?: Maybe<GalleryRecord>;
-  /** Returns the single instance record */
-  home?: Maybe<HomeRecord>;
   /** Returns a specific record */
-  product?: Maybe<ProductRecord>;
+  page?: Maybe<PageRecord>;
   /** Returns a specific asset */
   upload?: Maybe<FileField>;
 };
 
 
 /** The query root for this schema */
-export type Query_AllProductsMetaArgs = {
+export type Query_AllPagesMetaArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<ProductModelFilter>;
+  filter?: InputMaybe<PageModelFilter>;
   locale?: InputMaybe<SiteLocale>;
 };
 
@@ -2252,12 +1941,12 @@ export type Query_SiteArgs = {
 
 
 /** The query root for this schema */
-export type QueryAllProductsArgs = {
+export type QueryAllPagesArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<ProductModelFilter>;
+  filter?: InputMaybe<PageModelFilter>;
   first?: InputMaybe<Scalars['IntType']>;
   locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<ProductModelOrderBy>>>;
+  orderBy?: InputMaybe<Array<InputMaybe<PageModelOrderBy>>>;
   skip?: InputMaybe<Scalars['IntType']>;
 };
 
@@ -2274,39 +1963,11 @@ export type QueryAllUploadsArgs = {
 
 
 /** The query root for this schema */
-export type QueryContactInfoArgs = {
+export type QueryPageArgs = {
   fallbackLocales?: InputMaybe<Array<SiteLocale>>;
+  filter?: InputMaybe<PageModelFilter>;
   locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** The query root for this schema */
-export type QueryFaqArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** The query root for this schema */
-export type QueryGalleryArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** The query root for this schema */
-export type QueryHomeArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  locale?: InputMaybe<SiteLocale>;
-};
-
-
-/** The query root for this schema */
-export type QueryProductArgs = {
-  fallbackLocales?: InputMaybe<Array<SiteLocale>>;
-  filter?: InputMaybe<ProductModelFilter>;
-  locale?: InputMaybe<SiteLocale>;
-  orderBy?: InputMaybe<Array<InputMaybe<ProductModelOrderBy>>>;
+  orderBy?: InputMaybe<Array<InputMaybe<PageModelOrderBy>>>;
 };
 
 
@@ -2372,18 +2033,45 @@ export type ResponsiveImage = {
   width: Scalars['IntType'];
 };
 
+/** Block of type Rich Text Section (rich_text_section) */
+export type RichTextSectionRecord = RecordInterface & {
+  __typename?: 'RichTextSectionRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  content?: Maybe<Scalars['String']>;
+  id: Scalars['ItemId'];
+  image?: Maybe<FileField>;
+  imagePosition?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+};
+
+
+/** Block of type Rich Text Section (rich_text_section) */
+export type RichTextSectionRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+
+/** Block of type Rich Text Section (rich_text_section) */
+export type RichTextSectionRecordContentArgs = {
+  markdown?: InputMaybe<Scalars['Boolean']>;
+};
+
 export type SeoField = {
   __typename?: 'SeoField';
   description?: Maybe<Scalars['String']>;
   image?: Maybe<FileField>;
   title?: Maybe<Scalars['String']>;
   twitterCard?: Maybe<Scalars['String']>;
-};
-
-export type SeoFieldMultiLocaleField = {
-  __typename?: 'SeoFieldMultiLocaleField';
-  locale?: Maybe<SiteLocale>;
-  value?: Maybe<SeoField>;
 };
 
 /** Specifies how to filter SEO meta tags fields */
@@ -2441,6 +2129,58 @@ export type StatusFilter = {
   notIn?: InputMaybe<Array<InputMaybe<ItemStatus>>>;
 };
 
+/** Block of type Step (step) */
+export type StepRecord = RecordInterface & {
+  __typename?: 'StepRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  description?: Maybe<Scalars['String']>;
+  icon?: Maybe<FileField>;
+  id: Scalars['ItemId'];
+  name?: Maybe<Scalars['String']>;
+};
+
+
+/** Block of type Step (step) */
+export type StepRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
+/** Block of type Stepper Section (stepper_section) */
+export type StepperSectionRecord = RecordInterface & {
+  __typename?: 'StepperSectionRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  backgroundColor?: Maybe<ColorField>;
+  id: Scalars['ItemId'];
+  steps: Array<StepRecord>;
+  title?: Maybe<Scalars['String']>;
+};
+
+
+/** Block of type Stepper Section (stepper_section) */
+export type StepperSectionRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
+};
+
 /** Specifies how to filter Single-line string fields */
 export type StringFilter = {
   /** Search for records with an exact match */
@@ -2467,29 +2207,11 @@ export type StringMatchesFilter = {
   regexp?: InputMaybe<Scalars['BooleanType']>;
 };
 
-export type StringMultiLocaleField = {
-  __typename?: 'StringMultiLocaleField';
-  locale?: Maybe<SiteLocale>;
-  value?: Maybe<Scalars['String']>;
-};
-
 export type Tag = {
   __typename?: 'Tag';
   attributes?: Maybe<Scalars['MetaTagAttributes']>;
   content?: Maybe<Scalars['String']>;
   tag: Scalars['String'];
-};
-
-/** Specifies how to filter text fields */
-export type TextFilter = {
-  /** Filter records with the specified field defined (i.e. with any value) or not */
-  exists?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records with the specified field set as blank (null or empty string) */
-  isBlank?: InputMaybe<Scalars['BooleanType']>;
-  /** Filter records based on a regular expression */
-  matches?: InputMaybe<StringMatchesFilter>;
-  /** Exclude records based on a regular expression */
-  notMatches?: InputMaybe<StringMatchesFilter>;
 };
 
 /** Block of type Tile (tile) */
@@ -2507,10 +2229,9 @@ export type TileRecord = RecordInterface & {
   _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
   _updatedAt: Scalars['DateTime'];
   backgroundImage?: Maybe<FileField>;
-  description?: Maybe<Scalars['String']>;
   id: Scalars['ItemId'];
-  name?: Maybe<Scalars['String']>;
-  redirectPath?: Maybe<Scalars['String']>;
+  link?: Maybe<PageRecord>;
+  text?: Maybe<Scalars['String']>;
 };
 
 
@@ -2519,10 +2240,30 @@ export type TileRecord_SeoMetaTagsArgs = {
   locale?: InputMaybe<SiteLocale>;
 };
 
-export type TileRecordListListNonNullMultiLocaleField = {
-  __typename?: 'TileRecordListListNonNullMultiLocaleField';
-  locale?: Maybe<SiteLocale>;
-  value: Array<TileRecord>;
+/** Block of type Tiles Section (tiles_section) */
+export type TilesSectionRecord = RecordInterface & {
+  __typename?: 'TilesSectionRecord';
+  _createdAt: Scalars['DateTime'];
+  _firstPublishedAt?: Maybe<Scalars['DateTime']>;
+  _isValid: Scalars['BooleanType'];
+  _modelApiKey: Scalars['String'];
+  _publicationScheduledAt?: Maybe<Scalars['DateTime']>;
+  _publishedAt?: Maybe<Scalars['DateTime']>;
+  /** SEO meta tags */
+  _seoMetaTags: Array<Tag>;
+  _status: ItemStatus;
+  _unpublishingScheduledAt?: Maybe<Scalars['DateTime']>;
+  _updatedAt: Scalars['DateTime'];
+  description?: Maybe<Scalars['String']>;
+  id: Scalars['ItemId'];
+  tiles: Array<TileRecord>;
+  title?: Maybe<Scalars['String']>;
+};
+
+
+/** Block of type Tiles Section (tiles_section) */
+export type TilesSectionRecord_SeoMetaTagsArgs = {
+  locale?: InputMaybe<SiteLocale>;
 };
 
 /** Specifies how to filter by upload type */
@@ -2896,13 +2637,12 @@ export type FocalPoint = {
   y: Scalars['FloatType'];
 };
 
-export type GetHomeQueryVariables = Exact<{
-  locale?: InputMaybe<SiteLocale>;
-  fallbackLocales?: InputMaybe<Array<SiteLocale> | SiteLocale>;
+export type GetPageQueryVariables = Exact<{
+  slug?: InputMaybe<SlugFilter>;
 }>;
 
 
-export type GetHomeQuery = { __typename?: 'Query', home?: { __typename?: 'HomeRecord', title?: string | null, subtitle?: string | null, aboutTitle?: string | null, aboutContent?: string | null, backgroundImage?: { __typename?: 'FileField', url: string, alt?: string | null } | null, tiles: Array<{ __typename?: 'TileRecord', description?: string | null, id: any, name?: string | null, redirectPath?: string | null, backgroundImage?: { __typename?: 'FileField', url: string, alt?: string | null } | null }>, seo?: { __typename?: 'SeoField', title?: string | null, description?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', url: string } | null } | null } | null };
+export type GetPageQuery = { __typename?: 'Query', page?: { __typename?: 'PageRecord', id: any, title?: string | null, defaultColor?: { __typename?: 'ColorField', hex: string } | null, metaTags?: { __typename?: 'SeoField', title?: string | null, description?: string | null, twitterCard?: string | null, image?: { __typename?: 'FileField', url: string, alt?: string | null } | null } | null, sections: Array<{ __typename?: 'FaqSectionRecord', id: any, faqSection: Array<{ __typename?: 'FaqQuestionRecord', question?: string | null, id: any, answer?: string | null }> } | { __typename?: 'HeroSectionRecord', id: any, elements: Array<{ __typename?: 'HeroElementRecord', title?: string | null, id: any, description?: string | null, backgroundImage?: { __typename?: 'FileField', url: string, alt?: string | null } | null }> } | { __typename?: 'NavigationRecord', id: any, links: Array<{ __typename?: 'PageRecord', id: any, title?: string | null, slug?: string | null }> } | { __typename?: 'RichTextSectionRecord', id: any, imagePosition?: string | null, title?: string | null, content?: string | null, image?: { __typename?: 'FileField', url: string, alt?: string | null } | null } | { __typename?: 'StepperSectionRecord', id: any, title?: string | null, backgroundColor?: { __typename?: 'ColorField', hex: string } | null, steps: Array<{ __typename?: 'StepRecord', name?: string | null, description?: string | null, icon?: { __typename?: 'FileField', url: string, alt?: string | null } | null }> } | { __typename?: 'TilesSectionRecord', id: any, description?: string | null, tiles: Array<{ __typename?: 'TileRecord', id: any, text?: string | null }> }> } | null };
 
 
-export const GetHomeDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetHome"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"locale"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"SiteLocale"}}},{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"fallbackLocales"}},"type":{"kind":"ListType","type":{"kind":"NonNullType","type":{"kind":"NamedType","name":{"kind":"Name","value":"SiteLocale"}}}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"home"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"fallbackLocales"},"value":{"kind":"Variable","name":{"kind":"Name","value":"fallbackLocales"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"subtitle"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"tiles"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"backgroundImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"redirectPath"}}]}},{"kind":"Field","name":{"kind":"Name","value":"aboutTitle"}},{"kind":"Field","name":{"kind":"Name","value":"aboutContent"}},{"kind":"Field","name":{"kind":"Name","value":"seo"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"locale"},"value":{"kind":"Variable","name":{"kind":"Name","value":"locale"}}},{"kind":"Argument","name":{"kind":"Name","value":"fallbackLocales"},"value":{"kind":"Variable","name":{"kind":"Name","value":"fallbackLocales"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}}]}},{"kind":"Field","name":{"kind":"Name","value":"twitterCard"}}]}}]}}]}}]} as unknown as DocumentNode<GetHomeQuery, GetHomeQueryVariables>;
+export const GetPageDocument = {"kind":"Document","definitions":[{"kind":"OperationDefinition","operation":"query","name":{"kind":"Name","value":"GetPage"},"variableDefinitions":[{"kind":"VariableDefinition","variable":{"kind":"Variable","name":{"kind":"Name","value":"slug"}},"type":{"kind":"NamedType","name":{"kind":"Name","value":"SlugFilter"}}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"page"},"arguments":[{"kind":"Argument","name":{"kind":"Name","value":"filter"},"value":{"kind":"ObjectValue","fields":[{"kind":"ObjectField","name":{"kind":"Name","value":"slug"},"value":{"kind":"Variable","name":{"kind":"Name","value":"slug"}}}]}}],"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"defaultColor"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"hex"}}]}},{"kind":"Field","name":{"kind":"Name","value":"metaTags"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"twitterCard"}}]}},{"kind":"Field","name":{"kind":"Name","value":"sections"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"FaqSectionRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"faqSection"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"question"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"answer"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"TilesSectionRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"tiles"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"text"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"StepperSectionRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundColor"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"hex"}}]}},{"kind":"Field","name":{"kind":"Name","value":"steps"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"name"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"icon"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"RichTextSectionRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"imagePosition"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"content"}},{"kind":"Field","name":{"kind":"Name","value":"image"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"NavigationRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"links"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"slug"}}]}}]}},{"kind":"InlineFragment","typeCondition":{"kind":"NamedType","name":{"kind":"Name","value":"HeroSectionRecord"}},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"elements"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"title"}},{"kind":"Field","name":{"kind":"Name","value":"id"}},{"kind":"Field","name":{"kind":"Name","value":"description"}},{"kind":"Field","name":{"kind":"Name","value":"backgroundImage"},"selectionSet":{"kind":"SelectionSet","selections":[{"kind":"Field","name":{"kind":"Name","value":"url"}},{"kind":"Field","name":{"kind":"Name","value":"alt"}}]}}]}}]}}]}}]}}]}}]} as unknown as DocumentNode<GetPageQuery, GetPageQueryVariables>;
