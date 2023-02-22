@@ -1,24 +1,40 @@
+import { Container, Grid, Stack, Typography, Paper } from '@mui/material'
 import Image from 'next/image'
 import React from 'react'
 import { StepperSectionProps } from './types'
 
 const StepperSection: React.FC<StepperSectionProps> = ({ backgroundColor, steps, title }) => {
     return (
-        <div style={{ background: backgroundColor?.hex }} className='w-full bg-slate-500'>
-            <div className='container grid auto-cols-fr grid-flow-col items-center justify-items-center py-4'>
+        <Container>
+            <Grid container spacing={4}>
                 {steps.map((step) => (
-                    <div
-                        key={step.id}
-                        style={{ borderColor: `#00000020` }}
-                        className='flex h-full w-full flex-col items-center justify-start border-r px-4 last-of-type:border-r-0'
-                    >
-                        <Image src={step.icon?.url || ''} alt={step.icon?.alt || ''} width={128} height={128} />
-                        <h5 className='mb-2 text-center text-xl font-semibold'>{step.name}</h5>
-                        <p className='text-center text-lg'>{step.description}</p>
-                    </div>
+                    <Grid item xs={12} md={12 / steps.length} key={step.id}>
+                        <Paper
+                            elevation={1}
+                            component={Stack}
+                            direction='column'
+                            alignItems='center'
+                            justifyContent='flex-start'
+                            gap={1}
+                            height='100%'
+                            py={1}
+                            // sx={{
+                            //     borderBottom: { xs: '1px solid gray', md: 'none' },
+                            //     borderRight: { xs: 'none', md: '1px solid gray' }
+                            // }}
+                        >
+                            <Image src={step.icon?.url || ''} alt={step.icon?.alt || ''} width={128} height={128} />
+                            <Typography color='Highlight' fontWeight={700} align='center' variant='h5'>
+                                {step.name}
+                            </Typography>
+                            <Typography align='center' variant='body1' color='GrayText'>
+                                {step.description}
+                            </Typography>
+                        </Paper>
+                    </Grid>
                 ))}
-            </div>
-        </div>
+            </Grid>
+        </Container>
     )
 }
 

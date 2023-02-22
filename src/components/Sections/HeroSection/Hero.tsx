@@ -6,44 +6,62 @@ import { Navigation, Pagination } from 'swiper'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import { Box, Paper, Stack, Typography } from '@mui/material'
 
 const Hero: React.FC<HeroProps> = ({ elements }) => {
     return (
-        <section className='-order-1'>
-            <Swiper
+        <Box component='section' sx={{ order: '-1' }}>
+            <Box
+                component={Swiper}
                 navigation
                 modules={elements.length > 0 ? [Navigation, Pagination] : []}
-                className='h-[32rem] w-full'
                 spaceBetween={0}
                 slidesPerView={1}
-                style={{
+                sx={{
+                    height: '32rem',
                     // @ts-ignore
                     '--swiper-pagination-color': '#fff',
                     '--swiper-navigation-color': '#fff'
                 }}
                 pagination={{ clickable: true }}
-                color='white'
                 autoplay={{ delay: 5000 }}
             >
                 {elements.map((el) => (
-                    <SwiperSlide key={el.id} className='relative h-[32rem] bg-black bg-opacity-50'>
-                        <Image
+                    <SwiperSlide key={el.id} style={{ position: 'relative' }}>
+                        <Box
+                            component={Image}
                             src={el.backgroundImage?.url || ''}
                             alt={el.backgroundImage?.alt || ''}
                             fill
-                            className='-z-10 object-cover object-center'
+                            sx={{ zIndex: -1, objectFit: 'cover', objectPosition: 'center' }}
                         />
-                        <div className='flex h-full flex-col justify-center gap-4 px-32 backdrop-blur-sm'>
-                            <div className='absolute left-0 top-0 -z-10 h-full w-full bg-black bg-opacity-25' />
-                            <h1 className='text-center text-5xl font-bold text-white'>{el.title}</h1>
+                        <Stack direction='column' justifyContent='center' height='100%' width='100%' gap={2}>
+                            <Box
+                                height='100%'
+                                width='100%'
+                                position='absolute'
+                                top={0}
+                                left={0}
+                                sx={{
+                                    zIndex: -1,
+
+                                    background: 'rgba(0,0,0,0.25)',
+                                    backdropFilter: 'blur(4px)'
+                                }}
+                            />
+                            <Typography variant='h1' align='center' fontWeight={700}>
+                                {el.title}
+                            </Typography>
                             {el.description && (
-                                <p className='text-center text-3xl font-medium text-slate-100'>{el.description}</p>
+                                <Typography className='text-center text-3xl font-medium text-slate-100'>
+                                    {el.description}
+                                </Typography>
                             )}
-                        </div>
+                        </Stack>
                     </SwiperSlide>
                 ))}
-            </Swiper>
-        </section>
+            </Box>
+        </Box>
     )
 }
 

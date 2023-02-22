@@ -3,7 +3,7 @@ import Document, { Html, Head, Main, NextScript } from 'next/document'
 class CustomDocument extends Document {
     render() {
         return (
-            <Html lang='en' className='overflow-x-hidden bg-slate-200'>
+            <Html lang='en'>
                 <Head>
                     <link rel='preconnect' href='https://fonts.gstatic.com' />
                     <link

@@ -1,9 +1,10 @@
 import React, { PropsWithChildren } from 'react'
+import { Stack } from '@mui/material'
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     return (
-        <div>
-            <main className='mt-16 flex w-full flex-col gap-2'>{children}</main>
-        </div>
+        <Stack direction='column' gap={2} mt={1}>
+            {children}
+        </Stack>
     )
 }

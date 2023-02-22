@@ -8,7 +8,7 @@ import React from 'react'
 
 const Home: NextPage<GetPageQuery> = ({ page }) => {
     return (
-        <div className='flex flex-col gap-8'>
+        <div>
             <Seo {...page?.metaTags} title={page?.metaTags?.title || page?.title} />
             {/* @ts-ignore */}
             <Wrapper sections={page?.sections} color={page?.defaultColor} />
@@ -20,7 +20,6 @@ export default Home
 
 export const getServerSideProps: GetServerSideProps<GetPageQuery> = async (ctx) => {
     const slug = ctx.params?.slug
-    console.log(slug)
     const resp = await client.query({
         query: GET_PAGE,
         variables: { slug: { eq: slug, neq: '' } }
